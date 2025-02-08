@@ -27,7 +27,7 @@ const Register = () => {
                 },
             };
             const body = JSON.stringify({ name, email, password });
-            await axios.post(`http://localhost:4000/api/users`, body, config);
+            await axios.post(`https://backend-production-11e1.up.railway.app/api/users`, body, config);
             setSuccess('Registration successful! Redirecting to login...');
             setTimeout(() => navigate('/login'), 2000);
         } catch (err) {

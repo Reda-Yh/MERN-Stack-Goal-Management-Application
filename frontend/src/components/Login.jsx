@@ -29,14 +29,14 @@ const Login = () => {
                 },
             };
             const body = JSON.stringify({ email, password });
-            const loginResponse = await axios.post(`http://localhost:4000/api/users/login`, body, config);
+            const loginResponse = await axios.post(`https://backend-production-11e1.up.railway.app/api/users/login`, body, config);
             localStorage.setItem('token', loginResponse.data.token);
             const authConfig = {
                 headers: {
                     'Authorization': `Bearer ${loginResponse.data.token}`,
                 },
             };
-            await axios.get(`http://localhost:4000/api/users/me`, authConfig);
+            await axios.get(`https://backend-production-11e1.up.railway.app/api/users/me`, authConfig);
             setSuccess('Login successful! Redirecting...');
             setTimeout(()=> navigate('/goals'),2000 );
         } catch (err) {

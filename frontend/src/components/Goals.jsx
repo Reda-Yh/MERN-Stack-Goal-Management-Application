@@ -19,7 +19,7 @@ const Goals = () => {
                 },
             };
             try {
-                const response = await axios.get(`http://localhost:4000/api/goals`, config);
+                const response = await axios.get(`https://backend-production-11e1.up.railway.app/api/goals`, config);
                 setGoals(response.data);
                 setSuccess('Data uploaded successfully!')
                 setTimeout(()=>setSuccess(''),2000)
@@ -46,7 +46,7 @@ const Goals = () => {
             },
         };
         try {
-            const response = await axios.post(`http://localhost:4000/api/goals`, { text: newGoal }, config);
+            const response = await axios.post(`https://backend-production-11e1.up.railway.app/api/goals`, { text: newGoal }, config);
             setGoals([...goals, response.data]);
             setNewGoal('');
             setError('');
@@ -67,7 +67,7 @@ const Goals = () => {
             },
         };
         try {
-            await axios.delete(`http://localhost:4000/api/goals/${id}`, config);
+            await axios.delete(`https://backend-production-11e1.up.railway.app/api/goals/${id}`, config);
             setGoals(goals.filter(goal => goal._id !== id));
             setError('');
             setSuccess('Goal deleted successfully!');
@@ -92,7 +92,7 @@ const Goals = () => {
             },
         };
         try {
-            await axios.put(`http://localhost:4000/api/goals/${id}`, { text: editingText }, config);
+            await axios.put(`https://backend-production-11e1.up.railway.app/api/goals/${id}`, { text: editingText }, config);
             const newGoals = goals.map(goal => {
                 if (goal._id === id) {
                     return { ...goal, text: editingText };
